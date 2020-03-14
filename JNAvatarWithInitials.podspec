@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
     s.screenshots      			= "https://github.com/JNDisrupter/JNAvatarWithInitials/raw/master/Images/screenshot1.png"
     s.swift_version 			= '5.0'
     s.framework  				= "UIKit"
-    s.dependency 'SDWebImage', '~> 5.0.2'
+    s.dependency 'SDWebImage', '> 5.0'
 end
