@@ -173,6 +173,9 @@ open class JNAvatarWithInitials: UIView {
         // Check if image url is empty
         if !imageUrl.isEmpty {
             
+            // Show initialis
+            self.showInitials(fullName: fullName)
+            
             // Setup avatar image
             self.avatarImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             self.avatarImage.sd_setImage(with: URL(string:imageUrl), placeholderImage: placeHolderImage, options: SDWebImageOptions.continueInBackground, completed: { [ weak self] (image, error,  cacheType, imageURL) in
@@ -197,6 +200,9 @@ open class JNAvatarWithInitials: UIView {
                 }
             })
         } else if showInitails {
+            
+            // Reset image
+            self.avatarImage.image = nil
             
             // Show initialis
             self.showInitials(fullName: fullName)
@@ -240,7 +246,13 @@ open class JNAvatarWithInitials: UIView {
             
             // Set image
             self.avatarImage.image = image
+            
+            // Show initialis
+            self.showInitials(fullName: fullName)
         } else if showInitails {
+            
+            // Reset image
+            self.avatarImage.image = nil
             
             // Show initialis
             self.showInitials(fullName: fullName)
@@ -280,7 +292,7 @@ open class JNAvatarWithInitials: UIView {
     private func showInitials(fullName : String) {
         
         // Reset image
-        self.avatarImage.image = nil
+//        self.avatarImage.image = nil
         
         // Trim full name and separat it by space
         let displayNameArray = fullName.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).components(separatedBy: " ")
